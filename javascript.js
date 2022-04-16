@@ -2,22 +2,22 @@
 const containerWidth = "540";
 const containerHeight = "540";
 const divWidth = "18";
-const numberDivs = containerWidth/divWidth * containerHeight/divWidth;
+const numberDivs = (containerWidth/divWidth) ** 2;
+
+// set container width & height
+const divContainer = document.getElementById('container');
+divContainer.style.width = containerWidth + 'px';
+divContainer.style.height = containerHeight + 'px';
 
 // fill container with divs
 for (let i=0; i<numberDivs; i++) {
-    addDiv();
+    addDiv(divWidth-2);
 }
 
-// change div background color when cursor hovers over
-let divGrid = document.getElementById('container');
-divGrid.childNodes.forEach((div) => {
-    div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = 'pink';
-    });
-});
+// change div color
+divColorChange();
 
-// a button to do these things:
+// set button to do these things:
 //  1. ask user how many squares per side
 //  2. clear current grid
 //  3. calculate div width
@@ -26,7 +26,7 @@ let gridButton = document.getElementById('refresh');
 gridButton.addEventListener('click', () => {
 
     // show prompt
-    let numGrid = window.prompt('How many squares per side do you want?');
+    let numGrid = window.prompt('How many squares per side do you want to put?');
     if (numGrid > 100 || numGrid < 20) {
         alert('Please input a number between 20 and 100');
         return;
@@ -38,10 +38,13 @@ gridButton.addEventListener('click', () => {
     
     // calculate div width
     let newWidth = containerWidth / numGrid - 2;
-    console.log(`width = ${newWidth}`);
     
     // set div width & heigth
-//    addDiv(newWidth);
+    for (let i=0; i<numGrid*numGrid; i++) {
+        addDiv(newWidth);
+    }
+
+    divColorChange();
 })
 
 //----------
@@ -50,22 +53,23 @@ gridButton.addEventListener('click', () => {
 function addDiv(newwidth) {
     
     if (newwidth == null || newwidth == 0) {
+        console.log(newwidth);
         newwidth = divWidth;
     }
-    console.log(`addDiv width = ${newwidth}`);
 
     // create div
     const newDiv = document.createElement('div');
     
     // add class 'grid' to div
     newDiv.classList.add('grid');
-    newDiv.style.width = toString(newwidth) + 'px';
-    newDiv.style.height = toString(newwidth) + 'px';
-    
-    // container is where div will be added to
-    const currentDiv = document.getElementById('container');
+    newDiv.style.width = newwidth + 'px';
+    newDiv.style.height = newwidth + 'px';
+    newDiv.style.flexFlow = 0;
+    newDiv.style.flexGrow = 0;
+    newDiv.style.flexBasis = 'auto';
     
     // add div to container
+    const currentDiv = document.getElementById('container');
     currentDiv.appendChild(newDiv);
 }
 
@@ -77,3 +81,17 @@ function rmDivs( parent ) {
         parent.removeChild( parent.firstChild );
     }
 }
+
+//----------
+// change div background color when cursor hovers over
+//
+function divColorChange() {
+
+    let divGrid = document.getElementById('container');
+    divGrid.childNodes.forEach((div) => {
+        div.addEventListener('mouseover', () => {
+            div.style.backgroundColor = 'pink';
+        });
+    });
+}
+    

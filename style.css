@@ -13,8 +13,6 @@ body {
 }
 
 #container {
-    width: 540px;
-    height: 540px;
     margin: 0 auto;
     padding: 0;
     display: flex;
@@ -24,9 +22,7 @@ body {
 }
 
 .grid {
-/*    width: 16px;
-    height: 16px;
-*/    border: 1px dotted gray;
+    border: 1px dotted gray;
     margin: 0;
     padding: 0;
     flex: 0 0 auto;
