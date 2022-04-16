@@ -3,6 +3,15 @@ body {
     text-align: center;
 }
 
+#tools {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: pink;
+}
+
 #container {
     width: 540px;
     height: 540px;
@@ -11,13 +20,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0px;
-/*    border: 1px solid black;*/
+    border: 1px solid black;
 }
 
 .grid {
-    width: 16px;
+/*    width: 16px;
     height: 16px;
-    border: 1px dotted gray;
+*/    border: 1px dotted gray;
     margin: 0;
     padding: 0;
     flex: 0 0 auto;
