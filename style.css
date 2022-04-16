@@ -11,10 +11,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0px;
-    border: 1px solid black;
+/*    border: 1px solid black;*/
 }
 
-#container div {
+.grid {
     width: 16px;
     height: 16px;
     border: 1px dotted gray;
