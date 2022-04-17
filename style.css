@@ -1,91 +1,93 @@
 body {
-    margin: 20px auto;
-    text-align: center;
+  margin: 20px auto;
+  text-align: center;
 }
 
 #tools {
-    margin: 0;
-    padding: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: pink;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  gap: 40px;
+  background-color: pink;
 }
 
 #container {
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0px;
-    border: 1px solid black;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  border: 1px solid black;
 }
 
 .grid {
-    border: 1px dotted gray;
-    margin: 0;
-    padding: 0;
-    flex: 0 0 auto;
+  border: 1px dotted gray;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 auto;
 }
 
+/* Toggle for rainbow colors */
 .switch:before, .switch:after {
-    content: "";
-    vertical-align: middle;
-    display: inline-block;
-  }
+  content: "";
+  vertical-align: middle;
+  display: inline-block;
+}
 
-  .switch:before {
-    width: 2em;
-    height: 1em;
-    border: 2px solid white;
-    border-radius: 32px;
-    background-color: white;
-  }
+.switch:before {
+  width: 2em;
+  height: 1em;
+  border: 2px solid white;
+  border-radius: 32px;
+  background-color: white;
+}
 
-  .switch:after {
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    background-color: hotpink;
-  }
+.switch:after {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: hotpink;
+}
 
-  .switch {
-    position: relative;
-  }
+.switch {
+  position: relative;
+}
   
-  .switch:before, .switch:after {
-    content: "";
-    vertical-align: middle;
-    display: inline-block;
-  }
+.switch:before, .switch:after {
+  content: "";
+  vertical-align: middle;
+  display: inline-block;
+}
   
-  .switch:before {
-    width: 2em;
-    height: 1em;
-    border: 2px solid white;
-    border-radius: 32px;
-    background-color: white;
-  }
+.switch:before {
+  width: 2em;
+  height: 1em;
+  border: 2px solid white;
+  border-radius: 32px;
+  background-color: white;
+}
   
-  .switch:after {
-    position: relative;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    left: -2.2em;
-    background-color: hotpink;
-  }
+.switch:after {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  left: -2.2em;
+  background-color: hotpink;
+}
   
-  input {
-    display: none;
-  }
+input {
+  display: none;
+}
 
-  input:checked ~ .switch:before {
-    border-color: hotpink;
-    background-color: hotpink;
-  }
+input:checked ~ .switch:before {
+  border-color: hotpink;
+  background-color: hotpink;
+}
   
-  input:checked ~ .switch:after {
-    left: -1.1em;
-    background-color: white;
-  }
+input:checked ~ .switch:after {
+  left: -1.1em;
+  background-color: white;
+}

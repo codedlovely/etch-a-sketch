@@ -4,10 +4,10 @@ const containerHeight = "540";
 const divWidth = "18";
 const numberDivs = (containerWidth/divWidth) ** 2;
 const alertMessage = "Please input an integer between 20 and 100"
-const colorSelect = "pink";
 const colorNames = ['red', 'orange', 'yellow', 'limegreen', 'turquoise', 'blue', 'blueviolet'];
 
 let colorSwitch = 0;
+let colorSelect = "pink";
 
 // set container width & height
 const divContainer = document.getElementById('container');
@@ -28,6 +28,12 @@ switchButton.addEventListener('click', () => {
 
     // set color selection
     colorSwitch = switchButton.checked;
+})
+
+// change color selection
+let changeColor = document.getElementById('color-select');
+changeColor.addEventListener('click', () => {
+    colorSelect = changeColor.value;
 })
 
 // set button to do these things:
@@ -111,6 +117,7 @@ function divColorChange() {
     divGrid.childNodes.forEach((div) => {
         div.addEventListener('mouseover', () => {
             div.style.backgroundColor = colorSelect;
+
             if (colorSwitch) {
                 // rainbow
                 div.style.backgroundColor = getRandomColorname();
