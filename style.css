@@ -27,3 +27,65 @@ body {
     padding: 0;
     flex: 0 0 auto;
 }
+
+.switch:before, .switch:after {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .switch:before {
+    width: 2em;
+    height: 1em;
+    border: 2px solid white;
+    border-radius: 32px;
+    background-color: white;
+  }
+
+  .switch:after {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: hotpink;
+  }
+
+  .switch {
+    position: relative;
+  }
+  
+  .switch:before, .switch:after {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+  }
+  
+  .switch:before {
+    width: 2em;
+    height: 1em;
+    border: 2px solid white;
+    border-radius: 32px;
+    background-color: white;
+  }
+  
+  .switch:after {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    left: -2.2em;
+    background-color: hotpink;
+  }
+  
+  input {
+    display: none;
+  }
+
+  input:checked ~ .switch:before {
+    border-color: hotpink;
+    background-color: hotpink;
+  }
+  
+  input:checked ~ .switch:after {
+    left: -1.1em;
+    background-color: white;
+  }
