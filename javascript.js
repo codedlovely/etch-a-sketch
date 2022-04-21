@@ -1,6 +1,6 @@
 
-const containerWidth = "540";
-const containerHeight = "540";
+const containerWidth = "480";
+const containerHeight = "480";
 const divWidth = "18";
 const numberDivs = (containerWidth/divWidth) ** 2;
 const alertMessage = "Please input an integer between 20 and 100"

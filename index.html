@@ -11,32 +11,36 @@
 
 <body>
 
-    <h1>ETCH-A-SKETCH</h1>
-    <p>Move your mouse and hover over the grid below to see its color changes.</p>
-    <div id="tools">
-        <button id="refresh">New sketch</button>
-
-        <div>
-            <label for="colorselect">Select color</label>
-            <select name="colorselector" id="color-select">
-                    <option value="pink">Pink</option>
-                <option value="skyblue">Skyblue</option>
-                <option value="gold">Gold</option>
-                <option value="teal">Teal</option>
-                <option value="gray">Gray</option>
-                <option value="black">Black</option>
-            </select>
-        </div>
-
-        <div>
-            <label class="text" for='toggle-rainbow'>Color it rainbow</label>
-            <input type='checkbox' id='toggle-rainbow' class="checkbox" />
-            <label class="switch" for='toggle-rainbow'></label>
-        </div>
+    <div id="header">
+        <div class="title">ETCH-A-SKETCH</div>
+        <p>Move your mouse and hover over the grid below to see its color changes.</p>
     </div>
 
-    <div id="container">
-        <!-- create & insert divs here -->
+    <div id="outercontainer">
+
+        <div id="playground">
+            <!---->
+        </div>
+        
+        <div id="features">
+
+            <div class="colorpicker">
+                <label for="picker">Color: </label>
+                <input type="color" name="picker" id="picker" value="#ff8484">
+            </div>
+
+            <div class="rainbow">
+                <label for="togglerainbow">Color it rainbow</label>
+                <input type='checkbox' id='togglerainbow' class="checkbox">
+                <label class="switch" for='togglerainbow'></label>
+            </div>
+
+            <div class="sizeslider">
+                <label for="slider">Grid size: </label>
+                <input type="range" name="slider" id="slider" min="20" max="80" value="30">
+            </div>
+
+        </div>
     </div>
 
 </body>
