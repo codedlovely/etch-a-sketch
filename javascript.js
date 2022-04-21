@@ -1,16 +1,16 @@
 
-const containerWidth = "480";
-const containerHeight = "480";
+const containerWidth = "540";
+const containerHeight = "540";
 const divWidth = "18";
 const numberDivs = (containerWidth/divWidth) ** 2;
-const alertMessage = "Please input an integer between 20 and 100"
 const colorNames = ['red', 'orange', 'yellow', 'limegreen', 'turquoise', 'blue', 'blueviolet'];
 
 let colorSwitch = 0;
 let colorSelect = "pink";
+let sliderValue = 30;
 
 // set container width & height
-const divContainer = document.getElementById('container');
+const divContainer = document.getElementById('playground');
 divContainer.style.width = containerWidth + 'px';
 divContainer.style.height = containerHeight + 'px';
 
@@ -23,44 +23,39 @@ for (let i=0; i<numberDivs; i++) {
 divColorChange();
 
 // switch between single color and rainbow
-let switchButton = document.getElementById('toggle-rainbow');
+let switchButton = document.getElementById('togglerainbow');
 switchButton.addEventListener('click', () => {
 
     // set color selection
     colorSwitch = switchButton.checked;
 })
 
-// change color selection
-let changeColor = document.getElementById('color-select');
-changeColor.addEventListener('click', () => {
-    colorSelect = changeColor.value;
+// change color picker
+let currentPicker = document.getElementById('picker');
+currentPicker.addEventListener('change', () => {
+    colorSelect = currentPicker.value;
+})
+
+// change slider
+let currentSlider = document.getElementById('slider');
+currentSlider.addEventListener('change', () => {
+
+    sliderValue = currentSlider.value;
 })
 
 // set button to do these things:
-//  1. ask user how many squares per side they want
+//  1. get grid size from slider
 //  2. clear current grid
 //  3. calculate div width
 //  4. create a new grid
 let gridButton = document.getElementById('refresh');
 gridButton.addEventListener('click', () => {
 
-    // show prompt
-    let numGrid = window.prompt('How many squares per side do you want to create? (20 to 100)');
-    if (numGrid == null || numGrid == 0) {
-        return;
-    }
-    if (numGrid > 100 || numGrid < 20) {
-        alert(alertMessage);
-        return;
-    }
-    let tempnum = Number(numGrid);
-    if (Number.isInteger(tempnum) == false) {
-        alert(alertMessage);
-        return;
-    }
+    // get grid size from slider
+    let numGrid = sliderValue;
     
     // clear current grid
-    const currentDiv = document.getElementById('container');
+    const currentDiv = document.getElementById('playground');
     rmDivs( currentDiv );
     
     // calculate div width
@@ -94,13 +89,13 @@ function addDiv(newwidth) {
     newDiv.style.flexGrow = 0;
     newDiv.style.flexBasis = 'auto';
     
-    // add div to container
-    const currentDiv = document.getElementById('container');
+    // add div to playground
+    const currentDiv = document.getElementById('playground');
     currentDiv.appendChild(newDiv);
 }
 
 //----------
-// remove divs from container
+// remove divs from playground
 //
 function rmDivs( parent ) {
     while (parent.firstChild) {
@@ -113,7 +108,7 @@ function rmDivs( parent ) {
 //
 function divColorChange() {
 
-    let divGrid = document.getElementById('container');
+    let divGrid = document.getElementById('playground');
     divGrid.childNodes.forEach((div) => {
         div.addEventListener('mouseover', () => {
             div.style.backgroundColor = colorSelect;
