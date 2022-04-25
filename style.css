@@ -2,6 +2,7 @@ body {
   margin: 0;
   text-align: center;
   background-color: rgb(255, 233, 237);
+  min-width: 800px;
 }
 
 a {
@@ -132,4 +133,8 @@ a {
 #togglerainbow:checked ~ .switch:after {
   left: -1.1em;
   background-color: white;
+}
+
+#slider {
+  accent-color: hotpink;
 }
